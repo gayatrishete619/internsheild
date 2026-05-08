@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InternShield | Detect Internship Scams</title>
+    <meta name="description" content="Protect yourself from internship scams. Paste a link or job description to check for red flags like registration fees and urgent hiring.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <main class="container">
+        <header class="header">
+            <div class="logo-container">
+                <img src="logo.png" alt="InternShield Logo" class="logo" id="app-logo">
+                <h1 class="title">Intern<span>Shield</span> – Detect Fake Internships</h1>
+            </div>
+            <p class="subtitle">Protect yourself from scam internships</p>
+        </header>
+
+        <section class="checker-card">
+            <div class="input-group">
+                <label for="internship-input">Paste Internship Text or Link</label>
+                <textarea id="internship-input" placeholder="Paste the job description, social media post, or link here..." aria-label="Internship content"></textarea>
+            </div>
+            <button id="check-btn" class="primary-btn">
+                <span>Check for Scams</span>
+                <div class="btn-shine"></div>
+            </button>
+        </section>
+
+        <section id="result-section" class="result-section hidden">
+            <div id="result-card" class="result-card">
+                <div class="result-header">
+                    <div id="status-icon" class="status-icon"></div>
+                    <h2 id="status-text">Analysis Complete</h2>
+                </div>
+                <div class="result-body">
+                    <p id="result-summary"></p>
+                    <ul id="reasons-list" class="reasons-list"></ul>
+                </div>
+                <button id="reset-btn" class="secondary-btn">Check Another</button>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2026 InternShield. Stay Safe, Get Hired.</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
