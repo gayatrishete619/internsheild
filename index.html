@@ -11,6 +11,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="nav-logo">
+                    <img src="logo.png" alt="InternShield Logo" class="nav-logo-img">
+                    <span class="nav-title">InternShield</span>
+                </div>
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#tips-section">Safety Tips</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                </ul>
+                <button id="dark-mode-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
     <div class="background-blobs">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
@@ -18,18 +41,46 @@
 
     <main class="container">
         <header class="header">
-            <div class="logo-container">
-                <img src="logo.png" alt="InternShield Logo" class="logo" id="app-logo">
-                <h1 class="title">Intern<span>Shield</span> – Detect Fake Internships</h1>
-            </div>
+            <h1 class="title">Detect Fake Internships</h1>
             <p class="subtitle">Protect yourself from scam internships</p>
         </header>
 
         <section class="checker-card">
-            <div class="input-group">
-                <label for="internship-input">Paste Internship Text or Link</label>
-                <textarea id="internship-input" placeholder="Paste the job description, social media post, or link here..." aria-label="Internship content"></textarea>
+            <div class="mode-selector">
+                <button id="text-mode-btn" class="mode-btn active" data-mode="text">Text/Link</button>
+                <button id="file-mode-btn" class="mode-btn" data-mode="file">Upload File</button>
+                <button id="link-mode-btn" class="mode-btn" data-mode="link">Link Scanner</button>
             </div>
+
+            <div id="text-mode" class="input-mode active">
+                <div class="input-group">
+                    <label for="internship-input">Paste Internship Text or Link</label>
+                    <textarea id="internship-input" placeholder="Paste the job description, social media post, or link here..." aria-label="Internship content"></textarea>
+                </div>
+            </div>
+
+            <div id="file-mode" class="input-mode">
+                <div class="input-group">
+                    <label for="file-upload">Upload Screenshot or File</label>
+                    <div class="file-upload-area">
+                        <input type="file" id="file-upload" accept="image/*,.pdf,.txt,.doc,.docx" aria-label="File upload">
+                        <div class="upload-prompt">
+                            <span class="upload-icon">📤</span>
+                            <p>Click to upload or drag and drop</p>
+                            <small>PNG, JPG, PDF, TXT, DOC (Max 5MB)</small>
+                        </div>
+                        <div id="file-preview" class="file-preview hidden"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="link-mode" class="input-mode">
+                <div class="input-group">
+                    <label for="link-input">Scan URL for Scams</label>
+                    <input type="url" id="link-input" placeholder="Enter the internship URL (https://...)" aria-label="URL input">
+                </div>
+            </div>
+
             <button id="check-btn" class="primary-btn">
                 <span>Check for Scams</span>
                 <div class="btn-shine"></div>
@@ -54,6 +105,15 @@
             <p>&copy; 2026 InternShield. Stay Safe, Get Hired.</p>
         </footer>
     </main>
+
+    <!-- Tips Modal -->
+    <div id="tips-modal" class="modal hidden">
+        <div class="modal-content">
+            <button id="close-tips-modal" class="close-btn" aria-label="Close tips modal">&times;</button>
+            <h2 class="tips-title">💡 Safety Tips</h2>
+            <div class="tips-container" id="tips-container"></div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
